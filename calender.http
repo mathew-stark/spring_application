@@ -1,0 +1,11 @@
+###
+GET http://localhost:9000/tasks/getTasks
+
+###
+POST http://localhost:9000/tasks/addTasks
+Content-Type: application/json
+
+  {
+    "taskname": "sample task",
+    "date": "2024-01-27T15:47:53.4313895"
+  }
