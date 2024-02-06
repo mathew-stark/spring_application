@@ -30,4 +30,4 @@ Content-Type: application/json
 @date = sample date
 @id1 = 2
 
-GET http://localhost:9000/tasks/getTasksIdDate/{{id1}}/{{date}}
+GET {{url}}/{{id1}}/{{date}}
