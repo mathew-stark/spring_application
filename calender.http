@@ -1,5 +1,10 @@
 @url = https://springapplication-production.up.railway.app
 
+
+@url = localhost:9000
+
+
+
 ###
 GET {{url}}/tasks/getTasks
 
@@ -31,3 +36,6 @@ Content-Type: application/json
 @id1 = 4dnj389sidj
 
 GET http://{{url}}/tasks/getTasksIdDate/{{id1}}/{{date}}
+@id1 = 2
+
+GET {{url}}/{{id1}}/{{date}}
