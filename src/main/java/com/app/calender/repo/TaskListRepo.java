@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface TaskListRepo extends ListCrudRepository<Tasks, Integer> {
     List<Tasks> findAllByIdBetween(Integer x, Integer y);
+    List<Tasks> findByIdAndDate(Integer x, String date);
 }

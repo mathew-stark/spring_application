@@ -32,9 +32,7 @@ public class TaskList {
 
     @PostConstruct
     public void init(){
-
         list.add(new Tasks(1, "sample task", "sample date"));
-
     }
 
 }

@@ -4,23 +4,28 @@ package com.app.calender.controller;
 import com.app.calender.model.Tasks;
 import com.app.calender.repo.TaskList;
 import com.app.calender.repo.TaskListRepo;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/tasks")
 public class TasksController {
 
+    @Value("${user.name : hello}")
+    private String name;
 
-    private final TaskList taskModel;
+
+//    private final TaskList taskModel;
     private final TaskListRepo jdbcTasks;
 
     @Autowired
-    TasksController(TaskList taskModel,TaskListRepo jdbcTasks){
-        this.taskModel = taskModel;
+    TasksController(TaskListRepo jdbcTasks){
+//        this.taskModel = taskModel;
         this.jdbcTasks = jdbcTasks;
     }
 
@@ -40,4 +45,15 @@ public class TasksController {
     public List<Tasks> getTaskById(@PathVariable Integer id1, @PathVariable Integer id2){
         return jdbcTasks.findAllByIdBetween(id1,id2);
     }
+
+    @GetMapping("/getTasksIdDate/{id1}/{date}")
+    public List<Tasks> getTaskById(@PathVariable Integer id1, @PathVariable String date){
+        return jdbcTasks.findByIdAndDate(id1, date);
+    }
+
+    @PostConstruct
+    public void  init(){
+        jdbcTasks.save(new Tasks(null,"sample database task", "sample date")) ;
+    }
+
 }
