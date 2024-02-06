@@ -2,14 +2,12 @@ package com.app.calender.controller;
 
 
 import com.app.calender.model.Tasks;
-import com.app.calender.repo.TaskList;
 import com.app.calender.repo.TaskListRepo;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -58,8 +56,7 @@ public class TasksController {
     public void  init(){
 
         System.out.println(profile);
-
-//        jdbcTasks.save(new Tasks(null,"sample database task", "sample date")) ;
+        jdbcTasks.save(new Tasks(null,"sample database task initialization", "init")) ;
     }
 
 }
