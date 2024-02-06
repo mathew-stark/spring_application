@@ -19,6 +19,9 @@ public class TasksController {
     @Value("${user.name : hello}")
     private String name;
 
+    @Value("${spring.profiles.active}")
+    private String profile;
+
 
 //    private final TaskList taskModel;
     private final TaskListRepo jdbcTasks;
@@ -53,7 +56,10 @@ public class TasksController {
 
     @PostConstruct
     public void  init(){
-        jdbcTasks.save(new Tasks(null,"sample database task", "sample date")) ;
+
+        System.out.println(profile);
+
+//        jdbcTasks.save(new Tasks(null,"sample database task", "sample date")) ;
     }
 
 }

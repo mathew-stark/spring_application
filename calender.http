@@ -1,4 +1,4 @@
-@url = https://springapplication-production.up.railway.app
+@url = localhost:9000
 
 ###
 GET {{url}}/tasks/getTasks
