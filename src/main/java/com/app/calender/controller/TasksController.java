@@ -17,8 +17,8 @@ public class TasksController {
     @Value("${user.name : hello}")
     private String name;
 
-    @Value("${spring.profiles.active}")
-    private String profile;
+//    @Value("${spring.profiles.active}")
+//    private String profile;
 
 
 //    private final TaskList taskModel;
@@ -55,7 +55,7 @@ public class TasksController {
     @PostConstruct
     public void  init(){
 
-        System.out.println(profile);
+        System.out.println(name);
         jdbcTasks.save(new Tasks(null,"sample database task initialization", "init")) ;
     }
 
